@@ -5,7 +5,7 @@ qshop.controller("MainController", function($scope) {
     $scope.name = "world";
     $scope.products = getProductList();
 
-    function getProductList() {
+    function getProductList () {
         return [{
             picture: '../assets/images/products/product-1.jpg',
             name: 'Limited Price',
