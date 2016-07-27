@@ -57,7 +57,7 @@
         "../assets/images/products/product-3.jpg"
     ]
 }, {
-    "id": 1,
+    "id": 3,
     "picture": "../assets/images/products/product-3.jpg",
     "name": "New product",
     "price": 199,
