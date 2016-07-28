@@ -5,6 +5,7 @@ angular.module("qshop").controller("ProductController", function($scope, $stateP
         $scope.tabPanel = tab;
     }
 
+    //
     // $scope.prev = function(){
     //   $('.carousel').carousel('prev');
     // }
@@ -33,8 +34,19 @@ angular.module("qshop").controller("ProductController", function($scope, $stateP
         });
     }
 
-    $scope.addToCart = function(){
-      $scope.product.qty = $scope.productQty;
-      Cart.add($scope.product);
+    $scope.addToCart = function() {
+        // var allProducts = Cart.getProducts();
+        var productFound = false;
+        for (var i = 0; i < Cart.products.length; i++) {
+            if (Cart.products[i].id == $scope.product.id) {
+                Cart.products[i].qty += $scope.productQty;
+                productFound = true;
+                break;
+            }
+        }
+        if (!productFound) {
+            $scope.product.qty = $scope.productQty;
+            Cart.add($scope.product);
+        }
     }
 });

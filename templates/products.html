@@ -23,7 +23,7 @@
                             <div ng-repeat="product in products | filter:searchQuery" class="col-xs-12 col-sm-6 col-md-3 product-box">
                                 <div class="product">
                                     <span ng-show="product.onSale" class="on-sale-bubble">Sale!</span>
-                                    <a href="#" class="add-to-card">Add to cart</a>
+                                    <a href="" class="add-to-card" ng-click="addToCart(product)">Add to cart</a>
                                     <a href="/#/product/{{product.id}}">
                                         <img ng-src="{{product.picture}}">
                                     </a>

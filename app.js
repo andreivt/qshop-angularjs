@@ -43,5 +43,9 @@ qshop.config(function($stateProvider, $urlRouterProvider) {
         .state('product', {
             url: "/product/:id",
             templateUrl: "templates/product.html"
+        })
+        .state('cart', {
+            url: "/cart",
+            templateUrl: "templates/cart.html"
         });
 });

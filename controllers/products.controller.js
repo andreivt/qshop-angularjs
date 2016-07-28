@@ -1,4 +1,4 @@
-angular.module("qshop").controller("ProductsController", function($scope, ProductsRepository) {
+angular.module("qshop").controller("ProductsController", function($scope, ProductsRepository, Cart) {
 
     ProductsRepository.getProductsList().then(function(result) {
         $scope.products = result.data;
@@ -17,5 +17,21 @@ angular.module("qshop").controller("ProductsController", function($scope, Produc
     }, function(error) {
         console.error(error);
     });
+
+    $scope.addToCart = function(product) {
+        var allProducts = Cart.getProducts();
+        var productFound = false;
+        for (var i = 0; i < allProducts.length; i++) {
+            if (allProducts[i].id == product.id) {
+                allProducts[i].qty += 1;
+                productFound = true;
+                break;
+            }
+        }
+        if (!productFound) {
+            product.qty = 1;
+            Cart.add(product);
+        }
+    }
 
 });

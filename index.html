@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="css/about.css">
     <link rel="stylesheet" href="css/register.css">
     <link rel="stylesheet" href="css/product.css">
+    <link rel="stylesheet" href="css/cart.css">
     <script src="assets/js/jquery-2.1.4.js"></script>
     <script src="assets/bootstrap/js/bootstrap.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
@@ -23,6 +24,8 @@
     <script src="services/cart.service.js"></script>
     <script src="controllers/product.controller.js"></script>
     <script src="controllers/products.controller.js"></script>
+    <script src="controllers/cart.controller.js"></script>
+    <script src="controllers/menu.controller.js"></script>
     <base href="/index.html">
 </head>
 
@@ -39,10 +42,14 @@
                         <a ui-sref="default" class="navbar-brand">QShop</a>
                     </div>
                     <!-- Collection of nav links and other content for toggling -->
-                    <div id="myNavbar" class="collapse navbar-collapse">
+                    <div id="myNavbar" class="collapse navbar-collapse" ng-controller="MenuController">
                         <ul class="nav navbar-nav navbar-right">
                             <li><a ui-sref="products">Shop</a></li>
                             <li><a ui-sref="contact">Contact</a></li>
+                            <li>
+
+                                <a ui-sref="cart">Cart <span class="badge">{{totalProducts}}</span></a>
+                            </li>
                             <li><a ui-sref="about">About</a></li>
                             <li><a ui-sref="login">Login</a></li>
                         </ul>
